@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Developer CV</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+      integrity="sha384-rlPIIExhb9/2C7zj/VMeDgBwGZFXfjLfhnz+g1iqPTK6H8KAg8iOTC0Rt7p+2t4k"
+      crossorigin="anonymous"
+    />
+    <style>
+    :root {
+        --bg-primary: #1e1e1e;
+        --bg-secondary: #252526;
+        --accent: #0078d4;
+        --text-primary: #d4d4d4;
+        --text-secondary: #808080;
+        --success: #4ec9b0;
+        --string: #ce9178;
+        --number: #b5cea8;
+        --comment: #6a9955;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Cascadia Code", "Fira Code", monospace;
+    }
+    
+    body {
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+    }
+    
+    /* General Layout */
+    .ide-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        background: var(--bg-primary);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Header and Tabs */
+    .ide-header, .terminal-header {
+        background: var(--bg-secondary);
+        padding: 0.5rem;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .tab-bar {
+        display: flex;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        background: var(--bg-secondary);
+    }
+    
+    .tab {
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        background: var(--bg-primary);
+        color: var(--text-secondary);
+        border-radius: 4px 4px 0 0;
+        transition: background 0.3s, color 0.3s;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .tab.active {
+        color: var(--text-primary);
+        border-bottom: 2px solid var(--accent);
+    }
+    
+    .tab:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Window Controls */
+    .window-controls {
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .control {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+    
+    .close { background: #ff5f56; }
+    .minimize { background: #ffbd2e; }
+    .maximize { background: #27c93f; }
+    
+    /* Main Content */
+    .main-content {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+    }
+    
+    .sidebar {
+        background: var(--bg-secondary);
+        padding: 1rem;
+    }
+    
+    .explorer-item {
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        color: var(--text-secondary);
+        transition: color 0.3s ease;
+    }
+    
+    .explorer-item:hover {
+        color: var(--text-primary);
+    }
+    
+    .explorer-item.active {
+        color: var(--text-primary);
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+    }
+    
+    /* Code Editor */
+    .editor, .terminal-container {
+        display: none;
+        padding: 1rem;
+        background: var(--bg-primary);
+        border-radius: 0 0 8px 8px;
+    }
+    
+    .editor.active, .terminal-container.active {
+        display: block;
+    }
+    
+    .code-area {
+        padding: 2rem;
+        font-size: 0.95rem;
+        overflow-y: auto;
+    }
+    
+    .code-line {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .line-number {
+        color: var(--text-secondary);
+        text-align: right;
+        width: 2rem;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    
+    .keyword { color: #569cd6; }
+    .string { color: var(--string); }
+    .number { color: var(--number); }
+    .comment { color: var(--comment); }
+    .function { color: #dcdcaa; }
+    .type { color: var(--success); }
+    
+    /* Skills and Progress Bars */
+    .skill-bars, .language-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .skill-bars {
+        display: grid;
+        gap: 1rem;
+    }
+    
+    .skill-bar, .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: var(--bg-secondary);
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .skill-progress {
+        height: 100%;
+        background: var(--accent);
+        transition: width 0.3s ease;
+    }
+    
+    /* Projects and Certificates */
+    .project-card, .certificate-list li {
+        background: var(--bg-secondary);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        transition: transform 0.2s ease, background 0.3s ease;
+    }
+    
+    .project-tech {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    
+    .tech-tag {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        color: var(--accent);
+    }
+    
+    .certificate-list li:hover {
+        background: rgba(0, 0, 0, 0.3);
+        transform: scale(1.02);
+    }
+    
+    /* Terminal */
+    .terminal-body {
+        padding: 1rem;
+        color: var(--text-primary);
+        overflow-y: auto;
+        max-height: 300px;
+    }
+    
+    .terminal-output {
+        font-family: "Cascadia Code", monospace;
+        white-space: pre-wrap;
+        margin-bottom: 1rem;
+    }
+    
+    .terminal-input-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .terminal-prompt {
+        color: var(--accent);
+    }
+    
+    .terminal-input {
+        flex: 1;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        border: none;
+        border-radius: 4px;
+        padding: 0.5rem;
+        font-family: "Cascadia Code", monospace;
+    }
+    
+    .terminal-input:focus {
+        outline: none;
+        box-shadow: 0 0 5px var(--accent);
+    }
+    
+    /* Buttons */
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1em;
+        color: var(--text-primary);
+        background: var(--accent);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    
+    .btn:hover {
+        background: #005bb5;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .main-content {
+            grid-template-columns: 1fr;
+        }
+    
+        .sidebar {
+            display: none;
+        }
+    
+        .progress-bar {
+            height: 6px;
+        }
+    }
+    </style>
+  </head>
+  <body>
+    <div class="ide-container" id="editable-container">
+      <div class="ide-header">
+        <div class="window-controls">
+          <div class="control close"></div>
+          <div class="control minimize"></div>
+          <div class="control maximize"></div>
+        </div>
+        <span contenteditable="true"
+          >developer_cv.jsx - Visual Studio Code</span
+        >
+      </div>
+      <div class="tab-bar">
+        <div class="tab active" onclick="switchTab('editor')">
+            <i class="fas fa-code"></i>
+            developer_cv.jsx
+        </div>
+        <div class="tab" onclick="switchTab('terminal')">
+            <i class="fas fa-terminal"></i>
+            terminal
+        </div>
+    </div>
+    
+    
+    <div id="terminal-section" class="terminal-container" hidden>
+        <div class="terminal-header">
+            <span class="terminal-title">Terminal</span>
+        </div>
+        <div class="terminal-body">
+            <pre id="terminal-output" class="terminal-output">
+    Bienvenid@ a Developer CV Terminal!
+    Teclea "help" para ver los comandos disponibles.
+            </pre>
+            <div class="terminal-input-container">
+                <span class="terminal-prompt">$</span>
+                <input type="text" id="terminal-input" class="terminal-input" placeholder="Escribe un comando...">
+            </div>
+        </div>
+    </div>
+    
+      <div class="main-content">
+        <div class="sidebar">
+          <div class="explorer-item active">
+            <i class="fas fa-user"></i>
+            <span contenteditable="true">Profile</span>
+          </div>
+          <div class="explorer-item" onclick="scrollToSection('skills-section')">
+            <i class="fas fa-laptop-code"></i>
+            <span contenteditable="true">Skills</span>
+        </div>
+        
+        <div class="explorer-item" onclick="scrollToSection('experience-section')">
+            <i class="fas fa-briefcase"></i>
+            <span contenteditable="true">Experience</span>
+        </div>
+        
+        <div class="explorer-item" onclick="scrollToSection('projects-section')">
+            <i class="fas fa-project-diagram"></i>
+            <span contenteditable="true">Projects</span>
+        </div>
+        
+        <div class="explorer-item" onclick="scrollToSection('education-section')">
+            <i class="fas fa-graduation-cap"></i>
+            <span contenteditable="true">Education</span>
+        </div>
+       
+        <div class="explorer-item" onclick="scrollToSection('certificates-section')">
+            <i class="fas fa-certificate"></i>
+            <span contenteditable="true">Certificados</span>
+        </div>
+        <div class="explorer-item" onclick="scrollToSection('languages-section')">
+            <i class="fas fa-language"></i>
+            <span contenteditable="true">Idiomas</span>
+        </div>
+        
+        </div>
+        <div class="code-area">
+          <div class="section">
+            <div class="code-line">
+              <span class="line-number">1</span>
+              <span class="keyword">const</span>
+              <span class="type">Developer</span> = {
+            </div>
+            <div class="code-line">
+              <span class="line-number">2</span>
+              <span class="string"> name:</span>
+              <span contenteditable="true">"Tu Nombre"</span>,
+            </div>
+            <div class="code-line">
+              <span class="line-number">3</span>
+              <span class="string"> role:</span>
+              <span contenteditable="true">"Full Stack Developer"</span>,
+            </div>
+            <div class="code-line">
+              <span class="line-number">4</span>
+              <span class="string"> location:</span>
+              <span contenteditable="true">"Madrid, España"</span>,
+            </div>
+            <div class="code-line">
+              <span class="line-number">5</span>
+              <span class="comment"> // Contact info</span>
+            </div>
+            <div class="contact-method">
+              <i class="fas fa-envelope"></i>
+              <span contenteditable="true">email@ejemplo.com</span>
+            </div>
+            <div class="contact-method">
+              <i class="fab fa-github"></i>
+              <span contenteditable="true">github.com/tuusuario</span>
+            </div>
+            <div class="contact-method">
+              <i class="fab fa-linkedin"></i>
+              <span contenteditable="true">linkedin.com/in/tuusuario</span>
+            </div>
+          </div>
+
+          <div class="section" id="skills-section">
+            <div class="code-line">
+              <span class="line-number">10</span>
+              <span class="comment">// Technical Skills</span>
+            </div>
+            <div class="skill-bars">
+              <div contenteditable="true">
+                JavaScript/TypeScript
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div contenteditable="true">
+                React/Next.js
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div contenteditable="true">
+                Node.js/Express
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+              <div contenteditable="true">
+                Python/Django
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="experience-section">
+            <div class="code-line">
+                <span class="line-number">20</span>
+                <span class="comment">// Professional Experience</span>
+            </div>
+            <div contenteditable="true">
+                <h3>Desarrollador Full Stack</h3>
+                <p>Empresa Ejemplo, Madrid</p>
+                <p>Junio 2020 - Actualidad</p>
+                <ul>
+                    <li>Desarrollo y mantenimiento de aplicaciones web usando React y Node.js</li>
+                    <li>Implementación de APIs RESTful y optimización de consultas SQL</li>
+                    <li>Gestión de despliegues utilizando Docker y Jenkins</li>
+                </ul>
+            </div>
+            <br>
+            <div contenteditable="true">
+                <h3>Frontend Developer</h3>
+                <p>Startup Innovadora, Barcelona</p>
+                <p>Febrero 2018 - Mayo 2020</p>
+                <ul>
+                    <li>Diseño e implementación de interfaces de usuario con React</li>
+                    <li>Colaboración con equipos de diseño para mejorar la experiencia de usuario</li>
+                    <li>Escritura de pruebas unitarias utilizando Jest</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section" id="projects-section">
+            <div class="code-line">
+                <span class="line-number">20</span>
+                <span class="comment">// Featured Projects</span>
+            </div>
+            <div class="project-card">
+                <h3 contenteditable="true">E-commerce Platform</h3>
+                <p contenteditable="true">
+                    Full-stack e-commerce solution with real-time inventory management
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag" contenteditable="true">React</span>
+                    <span class="tech-tag" contenteditable="true">Node.js</span>
+                    <span class="tech-tag" contenteditable="true">MongoDB</span>
+                    <span class="tech-tag" contenteditable="true">Docker</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3 contenteditable="true">AI Image Generator</h3>
+                <p contenteditable="true">
+                    Web app that generates images using machine learning models
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag" contenteditable="true">Python</span>
+                    <span class="tech-tag" contenteditable="true">TensorFlow</span>
+                    <span class="tech-tag" contenteditable="true">FastAPI</span>
+                    <span class="tech-tag" contenteditable="true">Vue.js</span>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="education-section">
+            <div class="code-line">
+                <span class="line-number">30</span>
+                <span class="comment">// Education</span>
+            </div>
+            <div class="education-card">
+                <h3 contenteditable="true">Grado en Ingeniería Informática</h3>
+                <p contenteditable="true">Universidad de Ejemplo</p>
+                <p contenteditable="true">2015 - 2019</p>
+            </div>
+            <div class="education-card">
+                <h3 contenteditable="true">Máster en Desarrollo Web</h3>
+                <p contenteditable="true">Instituto Tecnológico</p>
+                <p contenteditable="true">2020 - 2022</p>
+            </div>
+        </div>
+        <div class="explorer-item">
+            <i class="fas fa-certificate"></i>
+            <span contenteditable="true">Certificados</span>
+        </div>
+        
+        <div class="section" id="certificates-section">
+            <div class="code-line">
+                <span class="line-number">30</span>
+                <span class="comment">// Certifications</span>
+            </div>
+            <ul class="certificate-list">
+                <li contenteditable="true">
+                    <strong>AWS Certified Solutions Architect</strong> - Amazon Web Services (2023)
+                </li>
+                <li contenteditable="true">
+                    <strong>Certified Kubernetes Administrator (CKA)</strong> - CNCF (2022)
+                </li>
+                <li contenteditable="true">
+                    <strong>Microsoft Certified: Azure Developer Associate</strong> - Microsoft (2023)
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section" id="languages-section">
+            <div class="code-line">
+                <span class="line-number">40</span>
+                <span class="comment">// Languages</span>
+            </div>
+            <ul class="language-list">
+                <li contenteditable="true">
+                    Español - Nativo
+                    <div class="progress-bar">
+                        <div class="skill-progress" style="width: 100%"></div>
+                    </div>
+                </li>
+                <li contenteditable="true">
+                    Inglés - Avanzado (C1)
+                    <div class="progress-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </li>
+                <li contenteditable="true">
+                    Francés - Intermedio (B1)
+                    <div class="progress-bar">
+                        <div class="skill-progress" style="width: 60%"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        </div>
+      </div>
+    </div>
+    <button class="btn" id="download-btn">Descargar CV en PDF</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script>
+      document.getElementById("download-btn").addEventListener("click", () => {
+        const element = document.getElementById("editable-container");
+        const options = {
+          margin: 1,
+          filename: "developer_cv.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+        };
+        html2pdf().set(options).from(element).save();
+      });
+      function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+    function switchTab(tab) {
+        const editorSection = document.getElementById('editor-section');
+        const terminalSection = document.getElementById('terminal-section');
+        const tabs = document.querySelectorAll('.tab');
+    
+        tabs.forEach(t => t.classList.remove('active'));
+        if (tab === 'editor') {
+            editorSection.classList.add('active');
+            terminalSection.classList.remove('active');
+            tabs[0].classList.add('active');
+        } else if (tab === 'terminal') {
+            terminalSection.classList.add('active');
+            editorSection.classList.remove('active');
+            tabs[1].classList.add('active');
+        }
+    }
+    document.getElementById('terminal-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const command = this.value.trim();
+            const output = document.getElementById('terminal-output');
+            
+            if (command === 'help') {
+                output.textContent += '\nAvailable commands:\n- help: Show available commands\n- profile: Show profile info\n- clear: Clear the terminal\n';
+            } else if (command === 'profile') {
+                output.textContent += '\nName: Irina Ichim\nRole: Full Stack Developer\nLocation: Barcelona, Spain\n';
+            } else if (command === 'clear') {
+                output.textContent = '';
+            } else {
+                output.textContent += `\nCommand not found: ${command}\n`;
+            }
+            
+            this.value = '';
+            output.scrollTop = output.scrollHeight;
+        }
+    });
+    
+    </script>
+  </body>
+</html>
