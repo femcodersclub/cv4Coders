@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Templates | Coders & Developers - femCodersClub</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Navegación principal">
+        <div class="navbar-content">
+            <a href="#" class="logo" aria-label="Inicio">
+                <i class="fas fa-file-alt" aria-hidden="true"></i>
+                CV Templates
+            </a>
+            <button class="hamburger" aria-label="Abrir menú">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar-menu">
+                <li><a href="#templates" aria-label="Ir a Plantillas">Plantillas</a></li>
+                <li><a href="./features/features.html" aria-label="Ir a Características">Características</a></li>
+                <li><a href="#about" aria-label="Ir a Acerca de">Acerca de</a></li>
+                <li><a href="#contact" class="btn" aria-label="Ir a Contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <h1 id="hero-title">Crea tu CV Profesional como Desarrollador Web</h1>
+            <p>Explora plantillas modernas y profesionales diseñadas para destacar tu perfil en tecnología.</p>
+            <a href="#templates" class="btn" aria-label="Ver Plantillas de CV">Ver Plantillas</a>
+        </section>
+
+        <div class="templates-grid" aria-labelledby="templates-title">
+    
+            <div class="template-card" role="article" aria-labelledby="template-minimal-title">
+                <div class="template-image" aria-hidden="true">
+                    <i class="fas fa-file-alt fa-3x"></i>
+                </div>
+                <div class="template-content">
+                    <h3 id="template-minimal-title">Plantilla Minimalista</h3>
+                    <p>Diseñada para destacar tu talento en el mundo IT, esta plantilla combina claridad y elegancia. Perfecta para desarrolladores y profesionales tecnológicos que buscan proyectar confianza y profesionalismo.</p>
+                    
+                    <a href="./plantillasHtml/minimalista.html" class="btn" aria-label="Ver detalles de la Plantilla Minimalista">Ver Más</a>
+                </div>
+            </div>
+
+            <div class="template-card" role="article" aria-labelledby="template-creative-title">
+                <div class="template-image" aria-hidden="true">
+                    <i class="fas fa-file-alt fa-3x"></i>
+                </div>
+                <div class="template-content">
+                    <h3 id="template-creative-title">Plantilla Creativa</h3>
+                    <p>Destaca tu personalidad con un diseño único y moderno.</p>
+                    <a href="#" class="btn" aria-label="Ver detalles de la Plantilla Creativa">Ver Más</a>
+                </div>
+            </div>
+
+            <div class="template-card" role="article" aria-labelledby="template-tech-title">
+                <div class="template-image" aria-hidden="true">
+                    <i class="fas fa-file-alt fa-3x"></i>
+                </div>
+                <div class="template-content">
+                    <h3 id="template-tech-title">Plantilla Técnica</h3>
+                    <p>Ideal para perfiles de IT y desarrollo de software.</p>
+                    <a href="#" class="btn" aria-label="Ver detalles de la Plantilla Técnica">Ver Más</a>
+                </div>
+            </div>
+        </div>
+
+        <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">Acerca de</h2>
+            <p>En <a href="https://www.femcodersclub.com/" target="_blank" rel="noopener noreferrer">femCoders Club</a>, estamos comprometidas con ayudar a profesionales del ámbito tecnológico a crear CVs impactantes que destaquen sus habilidades y experiencia. Estas plantillas son una propuesta inicial de nuestra comunidad, diseñada para inspirarte y facilitarte el proceso de creación de un CV profesional.</p>
+            <p>Además, invitamos a todos los miembros de nuestra comunidad a contribuir con sus propias ideas y diseños de plantillas. Cada propuesta será revisada y, de ser aprobada, se integrará a este proyecto para que siga creciendo y ofreciendo más opciones a desarrolladores como tú. ¡Juntas podemos construir una herramienta aún más útil y diversa!</p>
+        </section>
+    </main>
+
+    <footer aria-labelledby="footer-title">
+       
+        <div class="footer-content">
+            <p>&copy; 2025 CV Templates | Diseñado por 
+                <a href="https://www.femcodersclub.com/" target="_blank" rel="noopener noreferrer">femCoders Club</a>
+            </p>
+            <a href="https://www.femcodersclub.com/" target="_blank" rel="noopener noreferrer" aria-label="Ir al sitio web de femCoders Club">
+                <img src="./assets/logo-femcodersclub.jpg" alt="Logo de femCoders Club" class="footer-logo">
+            </a>
+        </div>
+    </footer>
+    
+
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.navbar-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+

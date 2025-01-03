@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Programador</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .profile-name {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 1.2em;
+            color: #ecf0f1;
+        }
+
+        .contact-info {
+            margin: 20px 0;
+            padding: 20px;
+            background: #34495e;
+            border-radius: 4px;
+        }
+
+        .contact-info a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+        .skill {
+            background: #3498db;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .language-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .language-list li {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .progress-bar {
+            width: 150px;
+            background: #d3d3d3;
+            border-radius: 5px;
+            height: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar span {
+            display: block;
+            height: 100%;
+            background: #3498db;
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: #2c3e50;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+    
+        .btn:hover {
+            background-color: #34495e;
+        }
+    
+        .btn:focus {
+            outline: none;
+            background-color: #1a252f;
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <h2 class="section-title">Editar y Descargar CV</h2>
+        <button id="download-btn" class="btn">Descargar CV en PDF</button>
+    </section>
+    <div id="cv-container" class="container">
+        <header>
+            <h1 class="profile-name editable" contenteditable="true">Nombre y Apellido</h1>
+            <p class="title editable" contenteditable="true">Desarrollador Full Stack</p>
+            <div class="contact-info">
+                <p>📧 <span class="editable" contenteditable="true">correo@ejemplo.com</span></p>
+                <p>📱 <span class="editable" contenteditable="true">+34 600 000 000</span></p>
+                <p>🔗 <span class="editable" contenteditable="true">GitHub</span></p>
+                <p>🔗 <span class="editable" contenteditable="true">LinkedIn</span></p>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Perfil Profesional</h2>
+            <p class="editable" contenteditable="true">
+                Desarrollador Full Stack con X años de experiencia en el desarrollo de aplicaciones web. 
+                Especializado en tecnologías modernas y metodologías ágiles. Apasionado por crear soluciones 
+                eficientes y escalables.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <div class="skill-list">
+                <div class="skill editable" contenteditable="true">JavaScript</div>
+                <div class="skill editable" contenteditable="true">Python</div>
+                <div class="skill editable" contenteditable="true">React</div>
+                <div class="skill editable" contenteditable="true">Node.js</div>
+                <div class="skill editable" contenteditable="true">SQL</div>
+                <div class="skill editable" contenteditable="true">Git</div>
+                <div class="skill editable" contenteditable="true">Docker</div>
+                <div class="skill editable" contenteditable="true">AWS</div>
+               
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Experiencia Profesional</h2>
+            <div class="experience-item">
+                <h3 class="experience-title editable" contenteditable="true">Desarrollador Senior Full Stack</h3>
+                <p class="experience-company editable" contenteditable="true">Empresa Tecnológica, S.L.</p>
+                <p class="experience-date editable" contenteditable="true">Enero 2020 - Presente</p>
+                <ul>
+                    <li class="editable" contenteditable="true">Desarrollo y mantenimiento de aplicaciones web utilizando React y Node.js</li>
+                    <li class="editable" contenteditable="true">Implementación de arquitecturas serverless en AWS</li>
+                    <li class="editable" contenteditable="true">Liderazgo técnico de un equipo de 5 desarrolladores</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="project">
+                <h3 class="project-title editable" contenteditable="true">Sistema de Gestión de Inventario</h3>
+                <p class="editable" contenteditable="true">Desarrollo de una aplicación web full stack para la gestión de inventario utilizando React, Node.js y MongoDB. Implementación de autenticación JWT y sistema de notificaciones en tiempo real.</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Logros</h2>
+            <ul>
+                <li class="editable" contenteditable="true">Certificación AWS Solutions Architect</li>
+                <li class="editable" contenteditable="true">Ganador del Hackathon Tech Challenge 2023</li>
+                <li class="editable" contenteditable="true">Reconocimiento por Innovación Tecnológica en [Nombre Empresa]</li>
+            </ul>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Educación</h2>
+            <div class="education-item">
+                <h3 class="experience-title editable" contenteditable="true">Grado en Ingeniería Informática</h3>
+                <p class="experience-company editable" contenteditable="true">Universidad Ejemplo</p>
+                <p class="experience-date editable" contenteditable="true">2015 - 2019</p>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Idiomas</h2>
+            <ul class="language-list">
+                <li>
+                    Español - Nativo
+                    <div class="progress-bar"><span style="width: 100%;"></span></div>
+                </li>
+                <li>
+                    Inglés - Avanzado (C1)
+                    <div class="progress-bar"><span style="width: 80%;"></span></div>
+                </li>
+                <li>
+                    Francés - Intermedio (B1)
+                    <div class="progress-bar"><span style="width: 50%;"></span></div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Habilidades Blandas</h2>
+            <ul>
+                <li class="editable" contenteditable="true">Comunicación Efectiva</li>
+                <li class="editable" contenteditable="true">Trabajo en Equipo</li>
+                <li class="editable" contenteditable="true">Resolución de Problemas</li>
+                <li class="editable" contenteditable="true">Gestión del Tiempo</li>
+                <li class="editable" contenteditable="true">Adaptabilidad</li>
+                <li class="editable" contenteditable="true">Aprendizaje Continuo</li>
+            </ul>
+        </section>
+        
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script>
+        document.getElementById('download-btn').addEventListener('click', () => {
+            const element = document.getElementById('cv-container');
+            const options = {
+                margin: 1,
+                filename: 'cv-programador.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().set(options).from(element).save();
+        });
+    </script>
+</body>
+</html>
