@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación de Plantillas - femCoders Club</title>
+    <link rel="stylesheet" href="documentacion.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <section id="intro">
+            <h1>Documentación del Proyecto CV4Coders</h1>
+            <p>
+                Este proyecto ha sido creado con la finalidad de proporcionar plantillas de currículum vitae (CV) diseñadas especialmente para la comunidad 
+                <a href="https://www.femcodersclub.com/" target="_blank" rel="noopener noreferrer">femCoders Club</a>. 
+                Todas las plantillas están desarrolladas utilizando HTML, CSS y JavaScript.
+            </p>
+            <p>
+                Invitamos a toda la comunidad a contribuir creando nuevas plantillas y enviando un 
+                <a href="https://github.com/femcodersclub/cv4Coders.git" target="_blank" rel="noopener noreferrer">pull request</a>.
+            </p>
+            <p>
+                Todas las plantillas son personalizables: hemos incluido comentarios en el código para facilitar su edición. También puedes clonar el proyecto, editarlo según tus necesidades y probar la opción básica de personalización directamente desde el navegador.
+            </p>
+            <a href="https://github.com/femcodersclub/cv4Coders.git" class="btn" target="_blank" rel="noopener noreferrer">Ir al Repositorio</a>
+            <a href="../index.html" class="btn" rel="noopener noreferrer" aria-label="Volver a la página principal">Volver a Inicio</a>
+
+        </section>
+                
+       
+            <h2>Documentación de Plantillas</a></h2>
+
+            <div class="templates-grid">
+                <article class="template-card">
+                    <div class="template-content">
+                        <h3><a href="../plantillasHtml/minimalista.html">Plantilla Minimalista</a></h3>
+                        <p>Plantilla de CV minimalista y elegante, diseñada para una presentación profesional de tu perfil. Incluye sistema de edición en el navegador y exportación a PDF.</p>
+                        <h4>Características</h4>
+                        <ul>
+                            <li>Editor en vivo integrado</li>
+                            <li>Exportación directa a PDF</li>
+                            <li>Diseño responsive</li>
+                            <li>Personalización de colores, fuentes y contenido.</li>
+                        </ul>
+                       <h4>Estructura del Proyecto</h4>
+                       <ul>
+                        <li>HTML: Contiene secciones clave y cada sección incluye elementos con el atributo contenteditable="true" para permitir la edición en tiempo real.</li>
+                        <li>CSS: Uso de grid</li>
+                        <li>JavaScript: Funciones para exportar a PDF  con la biblioteca html2pdf.js..</li>
+                       </ul>
+                    </div>
+                </article>
+                <article class="template-card">
+                    <div class="template-content">
+                        <h3><a href="../plantillasHtml/creativo.html">Plantilla Creativa</a></h3>
+                        <p>La Plantilla de CV Creativo está diseñada para profesionales tecnológicos que deseen destacar su perfil mediante un diseño único y moderno. Este CV es completamente personalizable y puede descargarse en formato PDF, además de incluir características más avanzadas como la subida de una foto de perfil.</p>
+                        <h4>Características</h4>
+                        <ul>
+                            <li>Editor en vivo integrado</li>
+                            <li>Exportación directa a PDF</li>
+                            <li>Diseño responsive</li>
+                            <li>Personalización de colores, fuentes y contenido.</li>
+                            <li>Subida de foto de perfil</li>
+                            <li>Interfaz Creativa y Moderna</li>
+                        </ul>
+                        <h4>Estructura del Proyecto</h4>
+                        <ul>
+                            <li>HTML: Contiene secciones clave y cada sección incluye elementos con el atributo contenteditable="true" para permitir la edición en tiempo real. Uso de etiquetas semánticas y comentarios para facilitar la navegación en el código.</li>
+                            <li>CSS: Diseño basado en grid y flexbox para una distribución dinámica.</li>
+                            <li>JavaScript: Función para subir y previsualizar fotos de perfil y descarga de PDF configurada con opciones personalizables.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="template-card">
+                    <div class="template-content">
+                        <h3><a href="../plantillasHtml/tecnico.html">Plantilla Técnica</a></h3>
+                        <p> La plantilla técnica emula un entorno de desarrollo en Visual Studio Code, diseñada específicamente para desarrolladores que deseen presentar su experiencia de una manera única y técnica. Incluye secciones editables, un terminal interactivo y la capacidad de descargar el CV como PDF.</p>
+                        <h4>Características</h4>
+                        <ul>
+                            <li>Diseño Inspirado en un IDE</li>
+                            <li>Editor en vivo integrado</li>
+                            <li>Exportación directa a PDF</li>
+                            <li>Diseño responsive</li>
+                            <li>Personalización de colores, fuentes y contenido.</li>
+                            <li>Terminal Interactiva</li>
+                        </ul>
+                        <h4>Estructura del Proyecto</h4>
+                        <ul>
+                            <li>HTML: Contiene secciones clave y cada sección incluye elementos con el atributo contenteditable="true" para permitir la edición en tiempo real. </li>
+                            <li>CSS: Estilo de Terminal y Editor, transiciones suaves en barras de progreso y tarjetas.</li>
+                            <li>JavaScript: Terminal simulada, descarga de PDF, navegación entre Secciones, pestañas activas</li>
+                        </ul>
+                        <h4>Instrucciones de Uso</h4>
+                        <ul>
+                            <li>Edición del Contenido:Haz clic en cualquier campo editable marcado con contenteditable="true" y modifica los textos directamente en el navegador.</li>
+                            <li>Uso del Terminal: Introduce comandos básicos como help, profile, clear.</li>
+                            <li>Descarga del CV en PDF</li>
+                           <li> Navegación por el CV: Haz clic en las pestañas de navegación para desplazarte por las diferentes secciones del CV.</li>
+                        </ul>
+                        <h4>Personalización</h4>
+                        <ul>
+                            <li>Colores: Modifica los colores de la plantilla en el archivo CSS.</li>
+                            <li>Agregar Nuevos Comandos: Personaliza la terminal añadiendo nuevos comandos en JavaScript
+                                <pre>if (command === 'newcommand') {
+                                    output.textContent += '\nRespuesta personalizada para newcommand\n';
+                                }
+                                </pre>
+                            </li>
+                            <li>Contenido: Añade o elimina secciones según tus necesidades.</li>
+                            <li>Editar las Barras de Progreso</li>
+                         
+                        </ul>
+                    </div>
+            </div>
+       
+        </section>
+    </main>
+</body>
+</html>

@@ -13,11 +13,12 @@
         }
 
         body {
-            background: #f0f2f5;
-            color: #333;
+            background: #f0f2f5;/*Color de fondo*/
+            color: #333;/*Color de texto*/
             line-height: 1.6;
         }
 
+        /* Estilos de la plantilla */
         .container {
             max-width: 1000px;
             margin: 40px auto;
@@ -26,7 +27,7 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
-
+/*Estilos de la cabecera*/
         header {
             text-align: center;
             padding: 30px;
@@ -58,6 +59,7 @@
             margin: 0 10px;
         }
 
+        /* Estilos de las secciones */
         .section {
             margin: 30px 0;
             padding: 0 20px;
@@ -100,7 +102,7 @@
             align-items: center;
             gap: 2rem;
         }
-
+/*Estilos de la barra de progreso*/
         .progress-bar {
             width: 150px;
             background: #d3d3d3;
@@ -117,6 +119,7 @@
             border-radius: 5px;
             transition: width 0.3s ease;
         }
+        
         .btn {
             display: inline-block;
             padding: 10px 20px;
@@ -250,11 +253,18 @@
                 <li class="editable" contenteditable="true">Aprendizaje Continuo</li>
             </ul>
         </section>
+        <!-- Sección Duplicada como ejemplo -->
+        <!-- <section class="section">
+            <h2 class="section-title">Nueva Sección</h2>
+            <p class="editable" contenteditable="true">Contenido de la nueva sección.</p>
+        </section> -->
         
     </div>
 
+    <!-- Script para descargar el CV en PDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
     <script>
+        // Función para descargar el CV en PDF
         document.getElementById('download-btn').addEventListener('click', () => {
             const element = document.getElementById('cv-container');
             const options = {

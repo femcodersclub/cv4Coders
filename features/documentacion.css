@@ -1,0 +1,141 @@
+:root {
+  --color-primary: #2563eb;
+  --color-text: #374151;
+  --color-background: #ffffff;
+  --color-border: #e5e7eb;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: #f9fafb;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Tipografía */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+/* Enlaces y botones */
+a {
+  color: var(--color-primary);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Grid y cards */
+.templates-grid {
+  margin-top: 2rem;
+}
+
+.template-card {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.template-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.template-content {
+  padding: 1.5rem;
+}
+
+/* Listas */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+li::before {
+  content: "•";
+  color: var(--color-primary);
+  position: absolute;
+  left: 0;
+}
+/* Estilos para la etiqueta <pre> */
+pre {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow-x: auto;
+  font-family: "Courier New", Courier, monospace;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+code {
+  background-color: #e5e7eb;
+  color: #2563eb;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace; /* Fuente monoespaciada */
+  font-size: 0.95rem;
+}
+
+pre code {
+  display: block;
+  padding: 0;
+  background: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+  pre {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+}
